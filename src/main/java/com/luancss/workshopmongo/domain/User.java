@@ -3,21 +3,25 @@ package com.luancss.workshopmongo.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="user")
 public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	private String id;
+	 @Id
+	 private String id;
 	 private String name;
-	 private String emailString;
+	 private String email;
 	 
 	 public User() {	
 	 }
 
-	public User(String id, String name, String emailString) {
-		super();
+	public User(String id, String name, String email) {
 		this.id = id;
 		this.name = name;
-		this.emailString = emailString;
+		this.email = email;
 	}
 
 	public String getId() {
@@ -36,12 +40,12 @@ public class User implements Serializable{
 		this.name = name;
 	}
 
-	public String getEmailString() {
-		return emailString;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEmailString(String emailString) {
-		this.emailString = emailString;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@Override
